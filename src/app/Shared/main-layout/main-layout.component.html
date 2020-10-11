@@ -1,0 +1,34 @@
+
+<nav class="navbar bg-dark">
+  <h2>Apple Shop</h2>
+
+  <ul>
+    <li routerLinkActive="active">
+      <a (click)="setType('IPhone')">IPhone</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('IPad')">Ipad</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('MacBook')">MacBook</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('AppleWatch')">AppleWatch</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('AirPods')">Airpods</a>
+    </li>
+    <li routerLinkActive="active">
+      <a (click)="setType('Imac')">Imac</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/cart']" (click)="setType('Cart')">Cart</a>
+    </li>
+
+  </ul>
+
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

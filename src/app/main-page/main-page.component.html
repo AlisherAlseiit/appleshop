@@ -1,0 +1,10 @@
+<div *ngIf = "product$ | async as products; else loading" class="dashboard">
+  <app-product *ngFor="let product of products | sorting: productServ.type" class="box" [product] = "product">
+
+  </app-product>
+</div>
+
+
+<ng-template #loading>
+  <p class="text-center">loading...</p>
+</ng-template>
