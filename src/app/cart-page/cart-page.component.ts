@@ -63,4 +63,8 @@ totalPrice  = 0
   this.totalPrice -= +product.price
     this.cartProducts.splice(this.cartProducts.indexOf(product), 1)
   }
+
+  confirm(){
+  return confirm('You want to add  more Items?');
+  }
 }

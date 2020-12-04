@@ -22,7 +22,10 @@ import {SearchPipe} from '../Shared/search.pipe';
     ReactiveFormsModule,
     QuillModule.forRoot(),
     RouterModule.forChild([{
-      path: '', component: AdminLayoutComponent, children: [
+      path: '',
+      component: AdminLayoutComponent,
+      canActivateChild: [AuthGuard],
+      children: [
         {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
         {path: 'login', component: LoginPageComponent},
         {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
