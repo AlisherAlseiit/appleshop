@@ -1,34 +1,57 @@
+<nav>
 
-<nav class="navbar bg-dark">
-  <h2>Apple Shop</h2>
+  <div class="home__header">
+    <div class="home__header__left">
 
-  <ul>
-    <li routerLinkActive="active">
+      <h2 >Apple Shop</h2>
+    </div>
+
+    <div class="home__header__right">
+      <div>
+        <img [src]="user?.avatar" alt="avatar" mat-card-avatar>
+        <span class="name">{{user?.firstName || 'Default user'}}</span>
+      </div>
+    <div>
       <a (click)="setType('IPhone')">IPhone</a>
-    </li>
-    <li routerLinkActive="active">
+    </div>
+    <div>
       <a (click)="setType('IPad')">Ipad</a>
-    </li>
-    <li routerLinkActive="active">
+    </div>
+    <div>
       <a (click)="setType('MacBook')">MacBook</a>
-    </li>
-    <li routerLinkActive="active">
+    </div>
+    <div>
       <a (click)="setType('AppleWatch')">AppleWatch</a>
-    </li>
-    <li routerLinkActive="active">
+    </div>
+      <div>
       <a (click)="setType('AirPods')">Airpods</a>
-    </li>
-    <li routerLinkActive="active">
+      </div>
+        <div>
       <a (click)="setType('Imac')">Imac</a>
-    </li>
-    <li routerLinkActive="active">
+        </div>
+          <div>
       <a [routerLink]="['/cart']" (click)="setType('Cart')">Cart</a>
-    </li>
+          </div>
 
-  </ul>
+     <div>
+      <mat-icon [matMenuTriggerFor]="menu">expand_more</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon> Logout
+        </button>
+      </mat-menu>
+    </div>
 
-</nav>
+</div>
+</div>
+
+
+  </nav>
+
+
 <div class="container">
   <router-outlet></router-outlet>
+
+
 </div>
 

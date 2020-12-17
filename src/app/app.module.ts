@@ -12,9 +12,19 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 import { ProductComponent } from './product/product.component';
 import {AuthInterceptor} from './Shared/interceptor/auth.interceptor';
 import { SortingPipe } from './Shared/sorting.pipe';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {MaterialModule} from './Shared/material.module';
+
+
+
 
 
 @NgModule({
@@ -26,16 +36,23 @@ import { environment } from '../environments/environment';
         CartPageComponent,
         ProductComponent,
         SortingPipe,
-
+        LoginComponent,
+        RegisterComponent
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        QuillModule.forRoot(),
-        ReactiveFormsModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    QuillModule.forRoot(),
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    BrowserAnimationsModule,
+    FormsModule,
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+  ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

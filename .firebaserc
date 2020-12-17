@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "apple-849c6"
+  },
+  "targets": {
+    "youtube-api-demo-2-297513": {
+      "hosting": {
+        "my-shop-project": [
+          "youtube-api-demo-2-297513"
+        ]
+      }
+    }
   }
 }

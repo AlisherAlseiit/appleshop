@@ -8,7 +8,7 @@ import {FbResponse, Product} from '../interface/interfaces';
   providedIn: 'root'
 })
 export class ProductService {
-type = 'IPhone'
+type = 'Imac'
   cartProducts: Product [] = []
   constructor(private http: HttpClient) { }
 

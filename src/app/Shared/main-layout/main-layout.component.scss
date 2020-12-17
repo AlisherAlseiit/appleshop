@@ -1,1 +1,80 @@
+@import "src/styles";
 
+
+
+/* HEADER SECTION */
+.home__header {
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $body-color;
+  padding: 5px;
+
+  top: 0;
+  width: 100%;
+
+  &__left {
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    gap: 10px;
+    flex: .50;
+    height: 100%;
+
+
+  }
+
+  // Left Ends Here
+
+  &__middle {
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: .5;
+
+
+
+
+
+  }
+
+  // Middle Ends Here
+
+  &__right {
+    flex: 0.5;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 15px;
+    gap: 10px;
+
+    > * {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    span.name {
+      font-size: 16px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 5px;
+      }
+    }
+
+    div:not(:first-of-type) {
+      padding: 10px;
+      border-radius: 50%;
+      background-color: #E4E6EB;
+    }
+
+  }
+}

@@ -1,8 +1,6 @@
 <div *ngIf="product$ | async as product; else loading">
   <div class="product">
-    <div class="header right">
-      <button routerLink="/" class="btn btn-dark">Back</button>
-    </div>
+
 
     <div class="flex">
       <div class="item text-center">
@@ -17,6 +15,7 @@
         <h2>Price: {{ product.price }}</h2>
 
         <button class="btn btn-dark" [routerLink]="['/cart']" (click)="addProduct(product)">Add to Cart</button>
+        <button routerLink="/" class="btn btn-dark">Back</button>
       </div>
     </div>
 
@@ -31,6 +30,44 @@
     </div>
   </div>
 </div>
+
+
+<div class="home__body__contentMiddle__center">
+  <mat-card class="post-message">
+    <mat-card-header class="post-message-header"
+                     style="padding-bottom: 20px; border-bottom: 1px solid lightgray;">
+      <img
+        alt="{{ user?.firstName}}"
+        mat-card-avatar
+        [src]="user?.avatar">
+      <form #form="ngForm" (ngSubmit)="postMessage(form)">
+        <input class="on-your-mind" name="message" ngModel placeholder="What's on your mind?" type="text">
+        <button style="display: none;" type="submit"></button>
+      </form>
+
+    </mat-card-header>
+    <mat-card-content class="card-body">
+
+    </mat-card-content>
+  </mat-card>
+
+  <!--Loop Through All Posts From Database and Display-->
+  <mat-card *ngFor="let p of posts" class="posts">
+    <mat-card-header class="posts__header">
+      <img alt="{{ p?.title }}" mat-card-avatar [src]="p?.avatar">
+      <div class="posts__header__right">
+        <span>{{ p?.time?.seconds * 1000 | date:'medium' }}</span>
+        <h3>{{ p?.title }}</h3>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="posts__body">
+      <p>{{ p?.message }}</p>
+    </mat-card-content>
+  </mat-card>
+
+
+</div>
+
 
 <ng-template #loading>
   <p class="text-center">loading...</p>
