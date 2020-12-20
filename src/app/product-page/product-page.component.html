@@ -32,7 +32,8 @@
 </div>
 
 
-<div class="home__body__contentMiddle__center">
+<div *ngIf="product$ | async as product;" class="home__body__contentMiddle__center" >
+
   <mat-card class="post-message">
     <mat-card-header class="post-message-header"
                      style="padding-bottom: 20px; border-bottom: 1px solid lightgray;">
@@ -40,7 +41,7 @@
         alt="{{ user?.firstName}}"
         mat-card-avatar
         [src]="user?.avatar">
-      <form #form="ngForm" (ngSubmit)="postMessage(form)">
+      <form #form="ngForm" (ngSubmit)="postMessage(form, product)">
         <input class="on-your-mind" name="message" ngModel placeholder="What's on your mind?" type="text">
         <button style="display: none;" type="submit"></button>
       </form>
@@ -56,6 +57,7 @@
     <mat-card-header class="posts__header">
       <img alt="{{ p?.title }}" mat-card-avatar [src]="p?.avatar">
       <div class="posts__header__right">
+        <span> Product name:  {{ p?.product_id}}</span>
         <span>{{ p?.time?.seconds * 1000 | date:'medium' }}</span>
         <h3>{{ p?.title }}</h3>
       </div>

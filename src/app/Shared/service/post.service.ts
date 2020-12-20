@@ -11,7 +11,8 @@ import {map} from 'rxjs/operators';
 })
 export class PostService {
   currentUser: User;
-
+  prodId;
+  // private prodId: string;
   constructor(private afs: AngularFirestore,
               private afAuth: AngularFireAuth) {
 
@@ -33,12 +34,13 @@ export class PostService {
   }
 
   postMessage(message: string, ownerName: string, otheritems ): void{
+    // this.prodId = otheritems.product_id;
     this.afs.collection('posts').add({
       message,
       title: ownerName,
       user_id: this.currentUser.uid,
       time: firebase.firestore.FieldValue.serverTimestamp(),
-      ...otheritems
+      ...otheritems,
     }).then(res => console.log(res)).catch(err => console.log(err));
   }
 }

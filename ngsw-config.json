@@ -31,7 +31,8 @@
   "dataGroups": [{
     "name": "firebase",
     "urls": [
-      "https://apple-849c6.firebaseio.com/**"
+      "https://apple-849c6.firebaseio.com/**",
+      "youtube-api-demo-2-297513.appspot.com/**"
     ],
     "cacheConfig": {
       "maxSize": 5,
